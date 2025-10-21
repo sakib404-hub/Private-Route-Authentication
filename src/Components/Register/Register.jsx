@@ -6,7 +6,7 @@ const Register = () => {
 
     const { createUser } = use(AuthContext);
     // console.log(authInfo)
-    console.log(createUser);
+    // console.log(createUser);
     // const userInformation = use(AuthContext)
     // console.log(userInformation);
 

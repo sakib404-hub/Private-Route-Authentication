@@ -6,8 +6,10 @@ import { auth } from '../Firebase/firebase.config';
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
+        setLoading(false);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signIn = (email, password) => {
@@ -15,6 +17,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const signOutUser = () => {
+        setLoading(false);
         return signOut(auth);
     }
 
@@ -24,6 +27,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 console.log('Inside the Observer : ', currentUser)
                 setUser(currentUser);
+                setLoading(false);
             }
             else {
                 console.log('No User Logged in!');
@@ -50,7 +54,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         user,
-        signOutUser
+        signOutUser,
+        loading
     }
     return (
         <AuthContext value={authInfo}>

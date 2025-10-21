@@ -32,6 +32,10 @@ const Header = () => {
             <NavLink to='/register'
                 className='nav-link'>Register</NavLink>
         </li>
+        <li>
+            <NavLink to='dashBoard'
+                className='nav-link'>DashBoard</NavLink>
+        </li>
         {
             user && (<>
                 <li>
