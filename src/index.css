@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "daisyui"{
+ themes : light --default, dark, cupcake;
+}
+
+
+.nav-link {
+  font-size: medium;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333; 
+  padding: 8px 14px; 
+  border-radius: 6px; 
+  transition: all 0.3s ease; 
+}
+
+.nav-link:hover {
+  background-color: #f3e8ff; 
+  color: #8701ff;
+  box-shadow: 0 2px 8px rgba(135, 1, 255, 0.2); 
+}
+
+.nav-link.active {
+  color: #8701ff;
+  border-bottom: 3px solid #8701ff;
+  background-color: #f9f5ff; 
+}
