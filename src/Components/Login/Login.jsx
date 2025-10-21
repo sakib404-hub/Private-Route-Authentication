@@ -4,7 +4,7 @@ import { AuthContext } from '../../Context/AuthContext';
 
 const Login = () => {
     const { signIn } = use(AuthContext)
-    console.log(signIn);
+    // console.log(signIn);
 
 
     const handleSignIn = (event) => {
@@ -12,11 +12,12 @@ const Login = () => {
         const email = event.target.email.value.trim();
         const password = event.target.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         signIn(email, password)
             .then((result) => {
                 console.log(result)
+                event.target.reset();
             })
             .catch((error) => {
                 console.log(error);
@@ -50,7 +51,8 @@ const Login = () => {
                             className="input"
                             placeholder="Password"
                             name='password'
-                            id='password' />
+                            id='password'
+                            maxLength={6} />
 
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-neutral mt-4">Login</button>
