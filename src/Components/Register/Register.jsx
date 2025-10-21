@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { NavLink } from 'react-router';
-import { auth } from '../../Firebase/firebase.config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthContext } from '../../Context/AuthContext';
 
 const Register = () => {
+
+    const { createUser } = use(AuthContext);
+    // console.log(authInfo)
+    console.log(createUser);
     // const userInformation = use(AuthContext)
     // console.log(userInformation);
 
@@ -40,7 +42,7 @@ const Register = () => {
             return;
         }
 
-        createUserWithEmailAndPassword(auth, email, password)
+        createUser(email, password)
             .then((result) => {
                 setSuccess(true);
                 console.log(result.user)
