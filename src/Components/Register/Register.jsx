@@ -18,6 +18,7 @@ const Register = () => {
         const username = event.target.username.value.trim();
         const email = event.target.email.value.trim();
         const password = event.target.password.value;
+        const checked = event.target.terms.checked;
 
         const clearMessageAfterDelay = () => {
             setTimeout(() => {
@@ -38,6 +39,11 @@ const Register = () => {
         const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6}$/;
         if (!passwordRegEx.test(password)) {
             setError('Password must be exactly 6 characters long and include one uppercase letter, one lowercase letter, and one special symbol.')
+            clearMessageAfterDelay();
+            return;
+        }
+        if (!checked) {
+            setError('You must Accept the Terms and the Condition');
             clearMessageAfterDelay();
             return;
         }
@@ -96,9 +102,20 @@ const Register = () => {
                             placeholder="Password"
                             name='password'
                             id='password'
+                            maxLength={6}
                             required />
 
                         <div><a className="link link-hover">Forgot password?</a></div>
+                        <fieldset className="border-base-300 rounded-box w-64 border p-4">
+                            <label className="label"
+                                htmlFor='terms'>
+                                <input type="checkbox"
+                                    className="checkbox"
+                                    name='terms'
+                                    id='terms' />
+                                Accept Terms and Condition
+                            </label>
+                        </fieldset>
                         <button className="btn btn-neutral mt-4">Register</button>
                     </fieldset>
                 </form>
