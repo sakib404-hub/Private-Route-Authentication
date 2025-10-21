@@ -1,7 +1,10 @@
-import React from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Header = () => {
+
+    // const userInformation = use(AuthContext)
+    // console.log(userInformation);
 
     const links = <>
         <li>

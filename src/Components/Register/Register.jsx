@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router';
 import { auth } from '../../Firebase/firebase.config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Register = () => {
+    // const userInformation = use(AuthContext)
+    // console.log(userInformation);
+
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
 
