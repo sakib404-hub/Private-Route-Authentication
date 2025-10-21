@@ -32,6 +32,20 @@ const Header = () => {
             <NavLink to='/register'
                 className='nav-link'>Register</NavLink>
         </li>
+        {
+            user && (<>
+                <li>
+                    <NavLink
+                        to={'/orders'} className='nav-link'>Orders</NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to={'/profile'}
+                        className='nav-link'>Profile</NavLink>
+                </li>
+            </>
+            )
+        }
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
